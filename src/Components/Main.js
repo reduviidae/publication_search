@@ -6,6 +6,7 @@ class Main extends Component {
     return (
       <div>
         <h1>{this.props.data}</h1>
+        <h1>{process.env.REACT_APP_TEST}</h1>
       </div>
     );
   }
