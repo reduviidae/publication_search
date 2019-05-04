@@ -1,9 +1,9 @@
 {
   "name": "publication_search",
   "version": "0.1.0",
+  "license": "(MIT OR Apache-2.0)",
   "private": true,
   "dependencies": {
-    "dotenv": "^8.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0"
   }
 }
