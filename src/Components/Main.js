@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 
-const AuthorList = React.lazy(() => {
-  import(/* webpackChunkName: 'AuthorList' */ "./AuthorList" )
-})
+const AuthorList = React.lazy(() => import("./AuthorList"));
 
 class Main extends Component {
-
   render() {
     return (
       <React.Suspense fallback={<div>Loading...</div>}>
@@ -15,7 +12,5 @@ class Main extends Component {
     );
   }
 }
-
-
 
 export default Main;

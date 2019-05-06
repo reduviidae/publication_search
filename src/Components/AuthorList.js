@@ -24,7 +24,7 @@ class AuthorList extends Component {
       this.props.data.data.authors.map(author => {
         return (
           <div class="author_list_div">
-            <h3>{author.display}</h3>
+            <h3 id={`author-${author.authorId}`}>{author.display}</h3>
             <a
               href={`https://www.penguinrandomhouse.com${
                 author.seoFriendlyUrl
