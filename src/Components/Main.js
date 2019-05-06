@@ -14,22 +14,36 @@ class Main extends Component {
       headers: PLAIN_HEADERS
     })
     .then(r => r.json())
-    .then(console.log)
+    .then(this.props.authorsToState)
   }
 
   render() {
+    console.log(this.props.data);
+    const authors = this.props.data.data && this.props.data.data.authors.map(author => {
+      return (<div class="author_list_div">
+        <h3>{author.display}</h3>
+        <a href={`https://www.penguinrandomhouse.com${author.seoFriendlyUrl}`}>Penguin Website Link</a>
+      </div>)
+    })
     return (
       <div>
-        <h1>{this.props.data}</h1>
+        <h1>List of Selected PRH Authors</h1>
+        {authors}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
       data: state.data
   };
 }
 
-export default connect(mapStateToProps)(Main);
+const mapDispatchToProps = dispatch => {
+  return {
+    authorsToState: data => dispatch({type: "GET_AUTHORS", payload: data})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

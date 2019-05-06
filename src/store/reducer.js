@@ -1,12 +1,12 @@
 // initial state
 const initialState = {
-  data: "Initial state string"
+  data: []
 }
 
 // Reducer
 const reducer = (state = initialState, action) => {
   switch(action.type){
-    case 'TEST_GET':
+    case 'GET_AUTHORS':
     return {
       ...state,
       data: action.payload
